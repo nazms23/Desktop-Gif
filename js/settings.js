@@ -1,4 +1,4 @@
-const { ipcRenderer, contextBridge } = require("electron");
+const { ipcRenderer } = require("electron");
 
 ipcRenderer.on('gifs',(err,data)=>{
 
@@ -15,5 +15,8 @@ ipcRenderer.on('gifs',(err,data)=>{
         slc.appendChild(opt);
         console.log(d)
     });
+})
 
+document.getElementById("selectbuton").addEventListener('click',()=>{
+    ipcRenderer.send('selectgif', document.getElementById("gifselect").value)
 })

@@ -91,5 +91,12 @@ app.on('ready', async () => {
         win.show()
       })
 
+    ipcMain.on('selectgif',(err,data)=>{
+        win.webContents.send('gif',data)
+        set["gif"] = data
+        fs.writeFileSync('./settings.json', JSON.stringify(set));
+
+    })
+
     
 })
