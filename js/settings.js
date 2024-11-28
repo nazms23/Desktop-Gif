@@ -1,5 +1,4 @@
-const { ipcRenderer } = require("electron");
-
+const { ipcRenderer, contextBridge } = require("electron");
 
 ipcRenderer.on('gifs',(err,data)=>{
 
